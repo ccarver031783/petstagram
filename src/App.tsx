@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import Signup from './pages/Signup';
+import './App.css'; // optional styling
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app-container">
+      <header className="app-header">
+        <h1>Welcome to PetBook</h1>
+        <p>Create your profile and introduce your pet to the world</p>
       </header>
+
+      <main className="app-main">
+        <Signup />
+      </main>
+
+      <footer className="app-footer">
+        <p>&copy; 2025 PetBook. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
