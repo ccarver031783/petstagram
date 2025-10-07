@@ -21,3 +21,19 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.sqlite3
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+
+# VSCode
+.vscode/
