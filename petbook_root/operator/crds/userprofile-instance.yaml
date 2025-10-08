@@ -1,0 +1,7 @@
+apiVersion: petbook.dev/v1
+kind: UserProfileService
+metadata:
+  name: userprofile-instance
+spec:
+  name: userprofile
+  image: ghcr.io/your-org/userprofile:v0.1
