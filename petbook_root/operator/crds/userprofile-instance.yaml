@@ -4,4 +4,5 @@ metadata:
   name: userprofile-instance
 spec:
   name: userprofile
-  image: ghcr.io/your-org/userprofile:v0.1
+  image: ghcr.io/ccarver031783/userprofile:v0.1
+
