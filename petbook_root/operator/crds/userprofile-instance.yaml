@@ -1,8 +1,10 @@
+#petstagram/petbook_root/operator/crds/userprofile-instance.yaml
 apiVersion: petbook.dev/v1
 kind: UserProfileService
 metadata:
   name: userprofile-instance
 spec:
   name: userprofile
-  image: ghcr.io/ccarver031783/userprofile:v0.1.1
-
+  image: ghcr.io/ccarver031783/userprofile:v0.1.21
+  version: "20251013"
+  redeploy: "force22"

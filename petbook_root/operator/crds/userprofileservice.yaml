@@ -19,6 +19,10 @@ spec:
                   type: string
                 image:
                   type: string
+                version:
+                  type: string
+                redeploy:
+                  type: string
             status:
               type: object
               properties:

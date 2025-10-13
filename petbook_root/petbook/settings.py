@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-(@cj2^+4g-y$k^a95i$c5k8!4crvc93p_i3+^9w+#mmzn_i9i1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.49.2']
 
 
 # Application definition
@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "userprofile",
+    "backend.userprofile",
 ]
 
 MIDDLEWARE = [
@@ -52,7 +52,7 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True  # For local dev only
 
-ROOT_URLCONF = "petbook.urls"
+ROOT_URLCONF = "backend.urls"
 
 TEMPLATES = [
     {
