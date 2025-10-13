@@ -5,7 +5,10 @@ import yaml
 @kopf.on.create('petbook.dev', 'v1', 'userprofileservices')
 def create_fn(spec, **kwargs):
     name = spec.get('name', 'userprofile')
-    image = spec.get('image', 'ghcr.io/your-org/userprofile:v0.1')
+    image = spec.get('image')
+
+    # Simple logging for visibility
+    print(f"Deploying {name} with image {image}")
 
     deployment = {
         'apiVersion': 'apps/v1',
@@ -17,6 +20,7 @@ def create_fn(spec, **kwargs):
             'template': {
                 'metadata': {'labels': {'app': name}},
                 'spec': {
+                    'imagePullSecrets': [{'name': 'ghcr-secret'}],
                     'containers': [{
                         'name': name,
                         'image': image,
@@ -26,7 +30,7 @@ def create_fn(spec, **kwargs):
             }
         }
     }
-
+    
     api = kubernetes.client.AppsV1Api()
     api.create_namespaced_deployment(namespace='default', body=deployment)
     return {'message': f'{name} deployed'}
