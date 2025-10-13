@@ -1,4 +1,4 @@
-# Dockerfile
+# petstagram/petbook_root/Dockerfile
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -7,6 +7,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+# ✅ Copy React build output into Django's static folder
+COPY frontend/dist/ backend/userprofile/static/
 
 EXPOSE 8000
 

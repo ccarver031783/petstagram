@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from .models import UserProfile
+from django.shortcuts import render
 
 def sample_profile(request):
     profile = UserProfile.objects.first()
@@ -10,3 +11,6 @@ def sample_profile(request):
             'location': profile.location,
         })
     return JsonResponse({'error': 'No profile found'}, status=404)
+
+def react_home(request):
+    return render(request, 'index.html')

@@ -5,6 +5,6 @@ metadata:
   name: userprofile-instance
 spec:
   name: userprofile
-  image: ghcr.io/ccarver031783/userprofile:v0.1.21
+  image: ghcr.io/ccarver031783/userprofile:v0.1.30
   version: "20251013"
-  redeploy: "force22"
+  redeploy: "force31"
