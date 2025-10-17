@@ -1,0 +1,15 @@
+apiVersion: petstagram.dev/v1
+kind: ServiceSignup
+metadata:
+  name: service-signup
+spec:
+  serviceName: userprofile
+  serviceVersion: "20251013"
+  signupSource: "operator-manifest"
+  config:
+    initialUsers:
+      - username: "admin"
+        password: "adminpassword"
+      - username: "chris"
+        password: "chrispassword"
+  notifyEmail: "thecarv726@gmail.com"

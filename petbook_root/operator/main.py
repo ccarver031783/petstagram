@@ -64,6 +64,25 @@ def update_image(spec, **kwargs):
     }
     api.patch_namespaced_deployment(name=name, namespace="default", body=patch)
 
+@kopf.on.create('petstagram.io', 'v1', 'signuprequests')
+def handle_signup(spec, **kwargs):
+    username = spec.get('username')
+    email = spec.get('email')
+    password = spec.get('password')
+
+    # Call the signup microservice
+    response = requests.post("http://signup-service/signup", json={
+        "username": username,
+        "email": email,
+        "password": password
+    })
+
+    if response.ok:
+        kopf.info(kwargs['meta'], reason='SignupSuccess', message='User signed up successfully.')
+    else:
+        kopf.warn(kwargs['meta'], reason='SignupFailed', message='Signup failed.')
+
+
 # Optional: react to any spec change, not just image
 # @kopf.on.update('petbook.dev', 'v1', 'userprofileservices')
 # def update_any(spec, **kwargs):
@@ -73,7 +92,7 @@ def update_image(spec, **kwargs):
 #     configure_k8s()
 #     api = kubernetes.client.AppsV1Api()
 #     patch = {
-#         "spec": {
+#         "spec": { 
 #             "template": {
 #                 "spec": {
 #                     "containers": [{

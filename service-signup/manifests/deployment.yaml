@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-signup
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-signup
+  template:
+    metadata:
+      labels:
+        app: service-signup
+    spec:
+      imagePullSecrets:
+        - name: ghcr-secret
+      containers:
+        - name: service-signup
+          image: ghcr.io/ccarver031783/signup-service:latest
+          ports:
+            - containerPort: 5000
